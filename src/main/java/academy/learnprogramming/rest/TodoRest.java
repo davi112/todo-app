@@ -5,6 +5,8 @@ package academy.learnprogramming.rest;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -28,8 +30,20 @@ import academy.learnprogramming.service.TodoService;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class TodoRest {
+	
 	@Inject
 	TodoService todoService;
+	
+	
+	@PostConstruct
+	private void init() {
+		System.out.println(todoService);
+	}
+	
+	@PreDestroy
+	private void kill() {
+		System.out.println(todoService);
+	}
 	
 	@Path("new")
 	@POST

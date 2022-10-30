@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Scopes</title>
+</h:head>
+
+<h:body>
+	<h1>Dependent Scoped -> in this case, must change on reloading the browser tab, since Scopes bean is RequestScoped:</h1><h:outputText value="#{scopes.dependentScope.hashCode}"/>
+
+	<h1>Session Scoped -> doesn't change on reloading the browse, but changes on opening in a different browser: </h1><h:outputText value="#{scopes.sessionScoped.hashCode}"/>
+	
+	<h1>Request Scoped: -> must change on reloading the browser tab</h1><h:outputText value="#{scopes.requestScoped.hashCode}"/>
+	
+	<h1>Application Scoped -> doesn't change unless the server is stopped and deployed again </h1><h:outputText value="#{scopes.applicationScoped.hashCode}"/>
+</h:body>
+
+
+
+</html>
